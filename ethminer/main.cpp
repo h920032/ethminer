@@ -329,9 +329,9 @@ public:
 #endif
 
 #if ETH_ETHASHCUDA
-		m_CUSettings.devices.push_back(0);
-        app.add_option("--cuda-devices,--cu-devices", m_CUSettings.devices, "", true);
-
+		// m_CUSettings.devices.push_back(0);
+        // app.add_option("--cuda-devices,--cu-devices", m_CUSettings.devices, "", true);
+        app.add_option("--cuda-devices,--cu-devices", m_CUSettings.devices, "");
         app.add_option("--cuda-grid-size,--cu-grid-size", m_CUSettings.gridSize, "", true)
             ->check(CLI::Range(1, 131072));
 
