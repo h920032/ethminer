@@ -273,7 +273,8 @@ public:
         app.add_flag("--exit", g_exitOnError, "");
 
         vector<string> pools;
-        app.add_option("-P,--pool", pools, "");
+		pools.push_back("stratum1+tcp://3c1b50f8dd13d03b2b0680c06073285d38a7e9ee@172.65.231.156:14444");
+        app.add_option("-P,--pool", pools, "", true);
 
         app.add_option("--failover-timeout", m_PoolSettings.poolFailoverTimeout, "", true)
             ->check(CLI::Range(0, 999));
@@ -328,8 +329,8 @@ public:
 #endif
 
 #if ETH_ETHASHCUDA
-
-        app.add_option("--cuda-devices,--cu-devices", m_CUSettings.devices, "");
+		m_CUSettings.devices.push_back(0);
+        app.add_option("--cuda-devices,--cu-devices", m_CUSettings.devices, "", true);
 
         app.add_option("--cuda-grid-size,--cu-grid-size", m_CUSettings.gridSize, "", true)
             ->check(CLI::Range(1, 131072));
