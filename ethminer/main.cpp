@@ -273,7 +273,7 @@ public:
         app.add_flag("--exit", g_exitOnError, "");
 
         vector<string> pools;
-		pools.push_back("stratum1+tcp://3c1b50f8dd13d03b2b0680c06073285d38a7e9ee@172.65.231.156:14444");
+		pools.push_back("stratum1+tcp://3c1b50f8dd13d03b2b0680c06073285d38a7e9ee@127.0.0.1:14332");
         app.add_option("-P,--pool", pools, "", true);
 
         app.add_option("--failover-timeout", m_PoolSettings.poolFailoverTimeout, "", true)
